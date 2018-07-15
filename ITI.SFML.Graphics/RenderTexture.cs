@@ -79,21 +79,12 @@ namespace SFML.Graphics
         }
 
         /// <summary>
-        /// Return the current active view
+        /// Get or Set the current active view
         /// </summary>
-        /// <returns>The current view</returns>
-        public View GetView()
+        public View View
         {
-            return new View( sfRenderTexture_getView( CPointer ) );
-        }
-
-        /// <summary>
-        /// Change the current active view
-        /// </summary>
-        /// <param name="view">New view</param>
-        public void SetView( View view )
-        {
-            sfRenderTexture_setView( CPointer, view.CPointer );
+            get => new View( sfRenderTexture_getView( CPointer ) );
+            set => sfRenderTexture_setView( CPointer, value.CPointer );
         }
 
         /// <summary>
@@ -119,7 +110,7 @@ namespace SFML.Graphics
         /// <returns>The converted point, in "world" coordinates</returns>
         public Vector2 MapPixelToCoords( Vector2i point )
         {
-            return MapPixelToCoords( point, GetView() );
+            return MapPixelToCoords( point, View );
         }
 
         /// <summary>
@@ -164,7 +155,7 @@ namespace SFML.Graphics
         /// <returns>The converted point, in target coordinates (pixels)</returns>
         public Vector2i MapCoordsToPixel( Vector2 point )
         {
-            return MapCoordsToPixel( point, GetView() );
+            return MapCoordsToPixel( point, View );
         }
 
         /// <summary>
@@ -430,7 +421,7 @@ namespace SFML.Graphics
                    " Size(" + Size + ")" +
                    " Texture(" + Texture + ")" +
                    " DefaultView(" + DefaultView + ")" +
-                   " View(" + GetView() + ")";
+                   " View(" + View + ")";
         }
 
         ////////////////////////////////////////////////////////////

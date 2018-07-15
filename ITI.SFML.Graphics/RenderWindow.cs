@@ -294,23 +294,13 @@ namespace SFML.Graphics
         {
             sfRenderWindow_clear( CPointer, color );
         }
-
         /// <summary>
-        /// Changes the current active view.
+        /// Get or Set the current active view
         /// </summary>
-        /// <param name="view">New view.</param>
-        public void SetView( View view )
+        public View View
         {
-            sfRenderWindow_setView( CPointer, view.CPointer );
-        }
-
-        /// <summary>
-        /// Returns the current active view.
-        /// </summary>
-        /// <returns>The current view.</returns>
-        public View GetView()
-        {
-            return new View( sfRenderWindow_getView( CPointer ) );
+            get => new View( sfRenderWindow_getView( CPointer ) );
+            set => sfRenderWindow_setView( CPointer, value.CPointer );
         }
 
         /// <summary>
@@ -345,7 +335,7 @@ namespace SFML.Graphics
         /// <returns>The converted point, in "world" coordinates.</returns>
         public Vector2 MapPixelToCoords( Vector2i point )
         {
-            return MapPixelToCoords( point, GetView() );
+            return MapPixelToCoords( point, View );
         }
 
         /// <summary>
@@ -397,7 +387,7 @@ namespace SFML.Graphics
         /// <returns>The converted point, in target coordinates (pixels).</returns>
         public Vector2i MapCoordsToPixel( Vector2 point )
         {
-            return MapCoordsToPixel( point, GetView() );
+            return MapCoordsToPixel( point, View );
         }
 
         /// <summary>
@@ -604,7 +594,7 @@ namespace SFML.Graphics
                    " Position(" + Position + ")" +
                    " Settings(" + Settings + ")" +
                    " DefaultView(" + DefaultView + ")" +
-                   " View(" + GetView() + ")";
+                   " View(" + View + ")";
         }
 
         /// <summary>
