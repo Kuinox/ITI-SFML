@@ -304,7 +304,8 @@ namespace SFML.Graphics
         }
 
         /// <summary>
-        /// Gets the default view of the window.
+        /// Gets the default view of the <see cref="RenderWindow"/>.
+        /// The default view has the initial size of the <see cref="RenderWindow"/>, and never changes after the <see cref="RenderWindow"/> has been created. 
         /// </summary>
         public View DefaultView
         {

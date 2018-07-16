@@ -13,7 +13,8 @@ namespace SFML.Graphics
         Vector2u Size { get; }
 
         /// <summary>
-        /// Default view of the target
+        /// Gets the default view of the <see cref="IRenderTarget"/>.
+        /// The default view has the initial size of the <see cref="IRenderTarget"/>, and never changes after the <see cref="IRenderTarget"/> has been created. 
         /// </summary>
         View DefaultView { get; }
 

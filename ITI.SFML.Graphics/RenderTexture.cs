@@ -70,7 +70,8 @@ namespace SFML.Graphics
         }
 
         /// <summary>
-        /// Gets the default view of the render texture.
+        /// Gets the default view of the <see cref="RenderTexture"/>.
+        /// The default view has the initial size of the <see cref="RenderTexture"/>, and never changes after the <see cref="RenderTexture"/> has been created. 
         /// </summary>
         public View DefaultView
         {
